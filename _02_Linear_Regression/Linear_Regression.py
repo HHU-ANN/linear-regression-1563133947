@@ -10,12 +10,8 @@ except ImportError as e:
 
 def ridge(data):
     X,Y=read_data()
-    X = np.mat(X)  # 404*6
-    Y = np.mat(Y).T  # 404*1
-    XTX=X.T*X
-    rXTX=XTX+np.eye(X.shape[1])*0.0001
-    new_w=rXTX.I*X.T*Y
-    return new_w @ data
+    w=np.matmul(np.linalg.inv(np.matmul(X.T,X)),np(X.T,Y))
+    return w @ data
     
 def lasso(data):
     item=1000
@@ -25,7 +21,7 @@ def lasso(data):
     m,n = X.shape
     w = np.zeros(n)
     for i in range(item):
-        grad=np.matmul(X.T,(np.matmul(X,w)-Y)+alpha*np.sign(w)
+        grad=np.matmul(X.T,np.matmul(X,w)-Y)+alpha*np.sign(w)
         w=w-alpha*grad
     return w @data
 
