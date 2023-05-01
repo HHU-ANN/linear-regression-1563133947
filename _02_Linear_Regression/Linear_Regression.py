@@ -11,7 +11,7 @@ except ImportError as e:
 def ridge(data):
     X,Y=read_data()
     w=np.matmul(np.linalg.inv(np.matmul(X.T,X)),np.matmul(X.T,Y))
-    return w 
+    return w @data
     
 def lasso(data):
     item=10000
@@ -25,7 +25,7 @@ def lasso(data):
         w2=w2-alpha*grad
         if np.linalg.norm(grad)<min:
             break
-    return w2 
+    return w2 @data
 
 def read_data(path='./data/exp02/'):
     x = np.load(path + 'X_train.npy')
