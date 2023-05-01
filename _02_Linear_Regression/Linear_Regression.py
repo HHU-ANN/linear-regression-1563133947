@@ -20,11 +20,12 @@ def ridge(data):
 def lasso(data):
     item=1000
     alpha=0.0001
+    tol=0.001
     X,Y=read_data()
-    m = X.shape[0]
-    w = np.zeros(X.shape[1])
+    m,n = X.shape
+    w = np.zeros(n)
     for i in range(item):
-        grad=np.matmul(X.T,(np.matmul(X,w)-Y))+alpha*np.sign(w)
+        grad=np.matmul(X.T,(np.matmul(X,w)-Y)+alpha*np.sign(w)
         w=w-alpha*grad
     return w @data
 
