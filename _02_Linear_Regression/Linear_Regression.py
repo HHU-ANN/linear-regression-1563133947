@@ -23,8 +23,8 @@ def lasso(data):
     w = np.zeros(n)
     for i in range(item):
         grad=np.matmul(X.T,np.matmul(X,w)-Y)+alpha*np.sign(w)
-        w=w-alpha*grag
-        if np.linalg.norm(grad)<min
+        w=w-alpha*grad
+        if np.linalg.norm(grad)<min:
             break
     return w @data
 
