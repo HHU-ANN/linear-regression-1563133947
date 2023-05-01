@@ -14,10 +14,9 @@ def ridge(data):
     return w @ data
     
 def lasso(data):
-    item=1000
+    item=10000
     min=0.0001
-    alpha=0.0001
-    tol=0.001
+    alpha=1e-5
     X,Y=read_data()
     m,n = X.shape
     w = np.zeros(n)
