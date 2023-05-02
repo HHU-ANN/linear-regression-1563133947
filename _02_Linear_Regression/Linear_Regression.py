@@ -16,7 +16,7 @@ def ridge(data):
     return sum(w_r*data)
     
 def lasso(data):
-    X,Y=read_data('D:/Git/hello-world-1563133947/data/exp02/') # 404*1
+    X,Y=read_data() # 404*1
     alpha=1e-10
     step=1e-10
     item=10000
