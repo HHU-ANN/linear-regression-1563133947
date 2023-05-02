@@ -16,19 +16,20 @@ def ridge(data):
     return sum(w_r*data)
     
 def lasso(data):
-    X,Y=read_data() # 404*1
-    alpha=1e-15
-    step=1e-15
+    X,Y=read_data('D:/Git/hello-world-1563133947/data/exp02/') # 404*1
+    alpha=1e-10
+    step=1e-10
     item=10000
-    tol=0.0001
+    # tol=0.0001
     m,n= X.shape
-    w = np.zeros(n)
+    # w = np.random.random(n)
+    w=np.zeros(n)
     for i in range(item):
-        Y_hat=np.dot(X,w)
-        grad=np.dot(X.T,Y_hat-Y)/m+alpha*np.sign(w)
+        Y_hat=np.matmul(X,w)
+        grad=np.matmul(X.T,Y_hat-Y)/m+alpha*np.sign(w)
         w=w-step*grad
-        if np.linalg.norm(grad)<tol:
-            break
+        # if np.linalg.norm(grad)<tol:
+        #     break
     return sum(w*data)
 
 def read_data(path='./data/exp02/'):
