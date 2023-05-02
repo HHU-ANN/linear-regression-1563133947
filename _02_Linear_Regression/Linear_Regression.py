@@ -18,7 +18,7 @@ def ridge(data):
 def lasso(data):
     X,Y=read_data() # 404*1
     alpha=1e-10
-    step=1e-10
+    step=1e-9
     item=10000
     # tol=0.0001
     m,n= X.shape
